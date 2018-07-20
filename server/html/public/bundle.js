@@ -107,14 +107,38 @@
 "use strict";
 
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 __webpack_require__(/*! ./css/main.css */ "./front_src/css/main.css");
 var io = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/lib/index.js");
 var socket = io.connect('http://localhost');
 
-socket.on('news', function (data) {
+socket.on('entities', function (data) {
     console.log(data);
-    socket.emit('my other event', { my: 'data' });
 });
+
+var Solver = function () {
+    function Solver() {
+        _classCallCheck(this, Solver);
+    }
+
+    _createClass(Solver, [{
+        key: 'nextFrame',
+        value: function nextFrame() {
+            socket.emit('ready', true);
+            requestAnimationFrame(this.nextFrame.bind(this));
+        }
+    }]);
+
+    return Solver;
+}();
+
+window.onload = function () {
+    var solver = window.Solver = new Solver();
+    solver.nextFrame();
+};
 
 /***/ }),
 

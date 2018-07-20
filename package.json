@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --config webpack.conf.js --watch",
-    "start": "webpack --config webpack.conf.js --watch | nodemon server/index --ignore *.html --watch server"
+    "start": "webpack --config webpack.conf.js --watch | nodemon server/index --ignore *.html --watch server --watch solver "
   },
   "repository": {
     "type": "git",

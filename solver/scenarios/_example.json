@@ -1,0 +1,22 @@
+
+{
+    "targets": {
+        "flag1": {
+            "x": 100,
+            "y": 100
+        },
+        "flag2": {
+            "x": 0,
+            "y": 300
+        }
+    },
+    "entity_radius": 10,
+    "entities": [
+        {
+            "color": "#ff0000",
+            "x": 0,
+            "y": 0,
+            "target": "flag1"
+        }
+    ]
+}
