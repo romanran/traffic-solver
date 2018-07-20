@@ -3,7 +3,7 @@ const app = express();
 const server = require('http').Server(app);
 const opn = require('opn');
 
-app.listen(80);
+server.listen(80);
 
 app.get('/', (req, res) => {
     res.sendfile(__dirname + '/html/index.html');
