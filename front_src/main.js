@@ -8,6 +8,5 @@ window.onload = () => {
     const $canvas = document.getElementById('canvas')
     const canvas = window.Canvas = new Canvas($canvas, socket)
     canvas.listen()
-    canvas.nextFrame()
     window.TSApp = canvas
 }

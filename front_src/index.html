@@ -1,8 +1,24 @@
 <html>
     <head>
         <title>Traffic solver</title>
+        <link href="https://fonts.googleapis.com/css?family=Teko:300,400" rel="stylesheet">
     </head>
     <body>
-        <canvas id="canvas"></canvas>
+        <div class="wrap">
+            <aside class="stats" data-stats>
+                <script data-stats-template  type="text/x-handlebars-template">
+                    {{#each entities}}
+                        <div class="entity">
+                            <div>id: {{this.id}}</div>
+                            <div>x: {{this.position.x}}</div>
+                            <div>y: {{this.position.y}}</div>
+                        </div> 
+                    {{/each}}
+                </script>
+            </aside>
+            <main class="canvas-wrap" data-canvas-wrap>
+                <canvas id="canvas"></canvas>
+            </main>
+        </div>
     </body>
 </html>
