@@ -8,13 +8,14 @@ class Entities {
     }
     init() {
         _.forEach(this.scenario.entities, entity => {
-            const target = _.find(this.scenario.targets, entity.target)
-            const entity_instance = new Entity({
-                radius : this.scenario.entity_radius, 
-                start  : {x: entity.x, y: entity.y},
-                target : target,
-                color  : entity.color
-            })
+            const target = this.scenario.targets[entity.target]
+
+            const entity_instance = new Entity(
+                this.scenario.entity_radius, 
+                {x: entity.x, y: entity.y},
+                target,
+                entity.color
+            )
             this.entities.push(entity_instance)
         })
     }
@@ -24,6 +25,15 @@ class Entities {
     }
     get list() {
         return this.entities
+    }
+    get position() {
+        return this.entities.map(entity => {
+            return {
+                id: entity.id,
+                position: entity.position,
+                is_hit: entity.is_hit
+            }
+        })
     }
 }
 
