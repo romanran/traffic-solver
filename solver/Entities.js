@@ -18,10 +18,20 @@ class Entities {
             )
             this.entities.push(entity_instance)
         })
+        this.start()
     }
 
     start() {
-
+        this.processTick()
+    }
+    processTick() {
+        setTimeout(this.processTick.bind(this), 0)
+        this.move()
+    }
+    move() {
+        _.forEach(this.entities, entity => {
+            entity.move(0.1, 0)            
+        })
     }
     get list() {
         return this.entities
@@ -37,4 +47,4 @@ class Entities {
     }
 }
 
-module.exports = Entities;
+module.exports = Entities

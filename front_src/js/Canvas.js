@@ -31,7 +31,7 @@ class Canvas {
         this.stats_template = Handlebars.compile(stats.innerHTML)
         // stats.parentNode.removeChild()
         this.nextFrame()
-
+        
         window.addEventListener('resize', _.debounce(e => this.resize()))
         _.forEach(this.entities, entity => this.drawEntity(entity))
     }
@@ -49,9 +49,11 @@ class Canvas {
         this.ctx.canvas.height = this.canvas_wrap.scrollHeight
     }
     drawEntity(entity) {
+        this.ctx.beginPath()
         this.ctx.arc(entity.position.x, entity.position.y, entity.radius, 0, 2*Math.PI)
         this.ctx.fillStyle = entity.color
         this.ctx.fill()
+        this.ctx.closePath()
     }
     updateStats() {
         this.stats = {

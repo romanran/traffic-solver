@@ -16,7 +16,6 @@ class Entity {
     }
     init() {
 
-
     }
     move(x = 0, y = 0) {
         this.position.x += x
