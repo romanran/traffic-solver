@@ -10,12 +10,18 @@
             "y": 300
         }
     },
-    "radius": 10,
+    "entity_radius": 10,
     "entities": [
         {
             "color": "#ff0000",
-            "x": 0,
-            "y": 0,
+            "x": 120,
+            "y": 100,
+            "target": "flag1"
+        },
+        {
+            "color": "#ff5500",
+            "x": 50,
+            "y": 100,
             "target": "flag1"
         }
     ]

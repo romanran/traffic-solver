@@ -2,19 +2,18 @@ const IO = require('socket.io');
 const Solver = require('../solver/main')
 
 function processTick(socket) {
-    socket.emit('entities', Solver.Entities.list)
+    
 }
+Solver.Entities.init()
 
 module.exports = server => {
     const io = IO(server)
     io.on('connection', socket => {
-
-        Solver.Entities.init()
-
+        socket.on('loaded', () => {
+            socket.emit('init', Solver.Entities.list)
+        })
         socket.on('ready', function (data) {
-            console.log('bla');
-            
-            process.nextTick(processTick.bind(this, socket))
+            socket.emit('entities_pos', Solver.Entities.position)
         });
     });
 }
