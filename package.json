@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/romanran/traffic-solver#readme",
   "dependencies": {
+    "brain.js": "^1.2.4",
     "express": "^4.16.3",
     "file-loader": "^1.1.11",
     "handlebars": "^4.0.11",

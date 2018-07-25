@@ -16,6 +16,7 @@ class Entities {
                 target,
                 entity.color
             )
+            entity_instance.init()
             this.entities.push(entity_instance)
         })
         this.start()
